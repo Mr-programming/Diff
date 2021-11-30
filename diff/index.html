@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="div">123</div>
+  <button id="button1">点我换DOM1</button>
+
+  <script type="module">
+    import h from './h.js'
+    import path from './path.js'
+    const h1=h('h1',{},[h('li',{key:1},1),h('li',{key:'gaba'},3),h('li',{key:'sss'},4)])
+    const h2=h('h1',{},[h('li',{},4),h('li',{key:1},666),h('p',{},5),h('li',{key:'gaba'},'欧青辣少儿！~'),h('input',{},999)])
+
+    let div= document.getElementById('div')
+    path(div,h1)
+    document.getElementById('button1').onclick=function(){
+      path(h1,h2)
+      console.log(h2)
+    }
+
+  </script>
+</body>
+</html>
